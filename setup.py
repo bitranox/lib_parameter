@@ -47,7 +47,7 @@ setup(
     author='Robert Nowotny',
     author_email='rnowotny1966@gmail.com',
     url='https://github.com/bitranox/lib_parameter',
-    packages=['lib_log_utils'],
+    packages=['lib_parameter'],
     install_requires=['pytest', 'typing'],
     classifiers=CLASSIFIERS,
     setup_requires=['pytest-runner'],
