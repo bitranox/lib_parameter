@@ -6,7 +6,7 @@ import sys
 
 
 def install(package):
-    subprocess.call([sys.executable, "-m", "pip", "install", "--upgrade", '-r', package])
+    subprocess.call([sys.executable, "-m", "pip", "install", "--upgrade", package])
 
 
 try:
