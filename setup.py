@@ -5,8 +5,18 @@ import subprocess
 import sys
 
 
-def install(package):
-    subprocess.call([sys.executable, "-m", "pip", "install", "--upgrade", package])
+def install_requirements_when_using_setup_py():
+    proc = subprocess.Popen([sys.executable, "-m", "pip", "install", '-r', './requirements_setup.txt'],
+                            stdin=subprocess.PIPE,
+                            stdout=subprocess.PIPE,
+                            stderr=subprocess.PIPE)
+    stdout, stderr = proc.communicate()
+    encoding = sys.getdefaultencoding()
+    print(stdout.decode(encoding))
+    print(stderr.decode(encoding))
+
+    if proc.returncode != 0:
+        raise RuntimeError('Error installing requirements_setup.txt')
 
 
 try:
@@ -38,17 +48,19 @@ if os.path.exists(readme_filename):
     except Exception:
         pass
 
-setup(
-    name='lib_parameter',
-    version='0.0.1',
-    description=description,
-    long_description=long_description,
-    long_description_content_type='text/x-rst',
-    author='Robert Nowotny',
-    author_email='rnowotny1966@gmail.com',
-    url='https://github.com/bitranox/lib_parameter',
-    packages=['lib_parameter'],
-    install_requires=['pytest', 'typing'],
-    classifiers=CLASSIFIERS,
-    setup_requires=['pytest-runner'],
-    tests_require=['pytest'])
+install_requirements_when_using_setup_py()
+
+setup(name='lib_parameter',
+      version='0.0.1',
+      description=description,
+      long_description=long_description,
+      long_description_content_type='text/x-rst',
+      author='Robert Nowotny',
+      author_email='rnowotny1966@gmail.com',
+      url='https://github.com/bitranox/lib_parameter',
+      packages=['lib_parameter'],
+      classifiers=CLASSIFIERS,
+      install_requires=[],
+      setup_requires=['pytest-runner'],
+      tests_require=['pytest']
+      )
