@@ -146,6 +146,10 @@ This software is licensed under the `MIT license <http://en.wikipedia.org/wiki/M
 Changelog
 =========
 
+0.0.2
+-----
+2019-09-02: refractor
+
 0.0.1
 -----
 2019-09-02: Initial public release
