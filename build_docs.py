@@ -21,7 +21,7 @@ from typing import Dict
 from docopt import docopt       # type: ignore
 
 # OWN
-import lib_log_utils
+import lib_log_utils            # type: ignore
 
 
 if sys.version_info < (3, 6):
@@ -31,7 +31,7 @@ if sys.version_info < (3, 6):
     sys.exit(1)
 else:
     # OWN
-    import rst_include
+    import rst_include          # type: ignore
 
 # CONSTANTS & PROJECT SPECIFIC FUNCTIONS
 codeclimate_link_hash = "4a90a2679cbe3c2989d4"  # for lib_parameter
