@@ -22,16 +22,8 @@ from docopt import docopt       # type: ignore
 
 # OWN
 import lib_log_utils            # type: ignore
+import rst_include              # type: ignore
 
-
-if sys.version_info < (3, 6):
-    lib_log_utils.add_stream_handler()
-    main_logger = logging.getLogger('init')
-    main_logger.error('only Python Versions from 3.6 are supported')
-    sys.exit(1)
-else:
-    # OWN
-    import rst_include          # type: ignore
 
 # CONSTANTS & PROJECT SPECIFIC FUNCTIONS
 codeclimate_link_hash = "4a90a2679cbe3c2989d4"  # for lib_parameter
@@ -90,6 +82,11 @@ def main(args: Dict[str, str]) -> None:
 
 
 if __name__ == '__main__':
+
+    if sys.version_info < (3, 6):
+        lib_log_utils.log_error('only Python Versions from 3.6 are supported')
+        sys.exit(1)
+
     lib_log_utils.add_stream_handler()
     main_logger = logging.getLogger('main')
     try:
