@@ -5,15 +5,15 @@ import pathlib
 from typing import Dict, List
 
 try:
-    from setuptools import setup
+    from setuptools import setup        # type: ignore
 except ImportError:
     from distutils.core import setup
 
 package_name = 'lib_parameter'                                                      # type: str
-required = list()                                                                   # type: List
+required = list()                                                                   # type: List[str]
 
-required_for_tests = list()                                                         # type: List
-entry_points = dict()                                                               # type: Dict
+required_for_tests = list()                                                         # type: List[str]
+entry_points = dict()                                                               # type: Dict[str, List[str]]
 
 
 def get_version(dist_directory: str) -> str:
