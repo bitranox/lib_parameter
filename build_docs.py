@@ -15,6 +15,7 @@ Options:
 import datetime
 import errno
 import logging
+import pathlib
 import sys
 from typing import Dict
 
@@ -53,29 +54,30 @@ def main(args: Dict[str, str]) -> None:
     """
 
     logger.info('include the include blocks')
-    rst_include.rst_inc(source='./.docs/README_template.rst',
-                        target='./README.rst')
+    rst_include.rst_inc(source=pathlib.Path('./.docs/README_template.rst'),
+                        target=pathlib.Path('./README.rst'))
 
     logger.info('replace repository related strings')
-    rst_include.rst_str_replace(source='./README.rst',
-                                target='',
+    rst_include.rst_str_replace(source=pathlib.Path('./README.rst'),
+                                target=None,
                                 str_pattern='{repository_slug}',
                                 str_replace=travis_repo_slug,
                                 inplace=True)
-    rst_include.rst_str_replace(source='./README.rst',
-                                target='',
+    rst_include.rst_str_replace(source=pathlib.Path('./README.rst'),
+                                target=None,
                                 str_pattern='{repository}',
                                 str_replace=repository,
                                 inplace=True)
-    rst_include.rst_str_replace(source='./README.rst',
-                                target='',
+    rst_include.rst_str_replace(source=pathlib.Path('./README.rst'),
+                                target=None,
                                 str_pattern='{repository_dashed}',
                                 str_replace=repository_dashed,
                                 inplace=True)
-    rst_include.rst_str_replace(source='./README.rst', target='', str_pattern='{last_update_yyyy}', str_replace=str(datetime.date.today().year + 1), inplace=True)
+    rst_include.rst_str_replace(source=pathlib.Path('./README.rst'), target=None, str_pattern='{last_update_yyyy}',
+                                str_replace=str(datetime.date.today().year + 1), inplace=True)
 
-    rst_include.rst_str_replace(source='./README.rst',
-                                target='',
+    rst_include.rst_str_replace(source=pathlib.Path('./README.rst'),
+                                target=None,
                                 str_pattern='{codeclimate_link_hash}',
                                 str_replace=codeclimate_link_hash,
                                 inplace=True)
