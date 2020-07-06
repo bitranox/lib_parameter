@@ -1,7 +1,7 @@
 lib_parameter
 =============
 
-|travis_build| |license| |pypi|
+|travis_build| |license| |jupyter| |pypi|
 
 |codecov| |better_code| |cc_maintain| |cc_issues| |cc_coverage| |snyk|
 
@@ -86,6 +86,7 @@ tested on linux "bionic" with python 3.6, 3.7, 3.8, 3.8-dev, pypy3
 
 ----
 
+- `Try it Online`_
 - `Installation and Upgrade`_
 - `Usage`_
 - `Usage from Commandline`_
@@ -100,7 +101,7 @@ tested on linux "bionic" with python 3.6, 3.7, 3.8, 3.8-dev, pypy3
 
 ----
 
-
+..include::./ try_in_jupyter.rst
 
 Installation and Upgrade
 ------------------------
