@@ -6,11 +6,14 @@ Changelog
 - new PATCH version for backwards compatible bug fixes
 
 
-0.0.3
+0.1.0
 -----
-2020-07-06 : patch release
+2020-07-07 : mypy type annotation handling
+    - changes the type annotation from *Optional[T]* to *T* on the return value
     - new click cli
     - use PizzaCutter Template
+    - added jupyter notebook
+
 
 0.0.2
 -----
