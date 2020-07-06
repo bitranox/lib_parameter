@@ -1,38 +1,94 @@
 lib_parameter
 =============
 
-|Pypi Status| |license| |maintenance|
+|travis_build| |license| |pypi|
 
-|Build Status| |Codecov Status| |Better Code| |code climate| |snyk security|
+|codecov| |better_code| |cc_maintain| |cc_issues| |cc_coverage| |snyk|
+
+
+.. |travis_build| image:: https://img.shields.io/travis/bitranox/lib_parameter/master.svg
+   :target: https://travis-ci.org/bitranox/lib_parameter
 
 .. |license| image:: https://img.shields.io/github/license/webcomics/pywine.svg
    :target: http://en.wikipedia.org/wiki/MIT_License
-.. |maintenance| image:: https://img.shields.io/maintenance/yes/{last_update_yyyy}.svg
-.. |Build Status| image:: https://travis-ci.org/bitranox/lib_parameter.svg?branch=master
-   :target: https://travis-ci.org/bitranox/lib_parameter
+
+.. |jupyter| image:: https://mybinder.org/badge.svg
+   :target: https://mybinder.org/v2/gh/bitranox/lib_parameter/master?filepath=jupyter_test_lib_parameter.ipynb
+
 .. for the pypi status link note the dashes, not the underscore !
-.. |Pypi Status| image:: https://badge.fury.io/py/lib-parameter.svg
+.. |pypi| image:: https://img.shields.io/pypi/status/lib-parameter?label=PyPI%20Package
    :target: https://badge.fury.io/py/lib_parameter
-.. |Codecov Status| image:: https://codecov.io/gh/bitranox/lib_parameter/branch/master/graph/badge.svg
+
+
+.. |codecov| image:: https://img.shields.io/codecov/c/github/bitranox/lib_parameter
    :target: https://codecov.io/gh/bitranox/lib_parameter
-.. |Better Code| image:: https://bettercodehub.com/edge/badge/bitranox/lib_parameter?branch=master
+
+.. |better_code| image:: https://bettercodehub.com/edge/badge/bitranox/lib_parameter?branch=master
    :target: https://bettercodehub.com/results/bitranox/lib_parameter
-.. |snyk security| image:: https://snyk.io/test/github/bitranox/lib_parameter/badge.svg
-   :target: https://snyk.io/test/github/bitranox/lib_parameter
-.. |code climate| image:: https://api.codeclimate.com/v1/badges/4a90a2679cbe3c2989d4/maintainability
+
+.. |cc_maintain| image:: https://img.shields.io/codeclimate/maintainability-percentage/bitranox/lib_parameter?label=CC%20maintainability
    :target: https://codeclimate.com/github/bitranox/lib_parameter/maintainability
    :alt: Maintainability
 
-some convenience functions to get default parameters
+.. |cc_issues| image:: https://img.shields.io/codeclimate/issues/bitranox/lib_parameter?label=CC%20issues
+   :target: https://codeclimate.com/github/bitranox/lib_parameter/maintainability
+   :alt: Maintainability
 
-supports python 3.7 and possibly other dialects.
+.. |cc_coverage| image:: https://img.shields.io/codeclimate/coverage/bitranox/lib_parameter?label=CC%20coverage
+   :target: https://codeclimate.com/github/bitranox/lib_parameter/test_coverage
+   :alt: Code Coverage
 
-`100% code coverage <https://codecov.io/gh/bitranox/lib_parameter>`_, mypy static type checking, tested under `Linux, OsX, Windows and Wine <https://travis-ci.org/bitranox/lib_parameter>`_, automatic daily builds  and monitoring
+.. |snyk| image:: https://img.shields.io/snyk/vulnerabilities/github/bitranox/lib_parameter
+   :target: https://snyk.io/test/github/bitranox/lib_parameter
+
+small gist, to return a default value if the parameter is None
+
+for mypy type annotation, the parameter usually has the type **Optional[T]**, the returned type will have the type **T**
+
+really not worth a package, just dont know where else to put it.
+
+
+.. code-block:: python
+
+    # definition
+    from typing import TypeVar, Optional
+
+    T = TypeVar('T')
+
+    def get_default_if_none(parameter: Optional[T], default: T) -> T:
+        if parameter is None:
+            return default
+        else:
+            return parameter
+
+
+.. code-block:: python
+
+    # usage
+    from typing import Optional
+    import lib_parameter
+
+    x: Optional[int] = None
+
+    x = lib_parameter.get_default_if_none(x, default=1)
+    # now x is from type int, not Optional[int]
+
+----
+
+automated tests, Travis Matrix, Documentation, Badges, etc. are managed with `PizzaCutter <https://github
+.com/bitranox/PizzaCutter>`_ (cookiecutter on steroids)
+
+Python version required: 3.6.0 or newer
+
+tested on linux "bionic" with python 3.6, 3.7, 3.8, 3.8-dev, pypy3
+
+`100% code coverage <https://codecov.io/gh/bitranox/lib_parameter>`_, codestyle checking ,mypy static type checking ,tested under `Linux, macOS, Windows <https://travis-ci.org/bitranox/lib_parameter>`_, automatic daily builds and monitoring
 
 ----
 
 - `Installation and Upgrade`_
-- `Basic Usage`_
+- `Usage`_
+- `Usage from Commandline`_
 - `Requirements`_
 - `Acknowledgements`_
 - `Contribute`_
@@ -44,66 +100,120 @@ supports python 3.7 and possibly other dialects.
 
 ----
 
+
+
 Installation and Upgrade
 ------------------------
 
-From source code:
+- Before You start, its highly recommended to update pip and setup tools:
+
+
+.. code-block:: bash
+
+    python -m pip --upgrade pip
+    python -m pip --upgrade setuptools
+    python -m pip --upgrade wheel
+
+- to install the latest release from PyPi via pip (recommended):
+
+.. code-block:: bash
+
+    # install latest release from PyPi
+    python -m pip install --upgrade lib_parameter
+
+    # test latest release from PyPi without installing (can be skipped)
+    python -m pip install lib_parameter --install-option test
+
+- to install the latest development version from github via pip:
+
 
 .. code-block:: bash
 
     # normal install
-    python setup.py install
-    # test without installing
-    python setup.py test
+    python -m pip install --upgrade git+https://github.com/bitranox/lib_parameter.git
 
-via pip latest Release:
+    # to test without installing (can be skipped)
+    python -m pip install git+https://github.com/bitranox/lib_parameter.git --install-option test
 
-.. code-block:: bash
+    # to install and upgrade all dependencies regardless of version number
+    python -m pip install --upgrade git+https://github.com/bitranox/lib_parameter.git --upgrade-strategy eager
 
-    # latest Release from pypi
-    pip install lib_parameter
 
-    # test without installing
-    pip install lib_parameter --install-option test
-
-via pip latest Development Version:
-
-.. code-block:: bash
-
-    # upgrade all dependencies regardless of version number (PREFERRED)
-    pip install --upgrade git+https://github.com/bitranox/lib_parameter.git --upgrade-strategy eager
-    # normal install
-    pip install --upgrade git+https://github.com/bitranox/lib_parameter.git
-    # test without installing
-    pip install git+https://github.com/bitranox/lib_parameter.git --install-option test
-
-via requirements.txt:
+- include it into Your requirements.txt:
 
 .. code-block:: bash
 
     # Insert following line in Your requirements.txt:
-    # for the latest Release:
+    # for the latest Release on pypi:
     lib_parameter
-    # for the latest Development Version :
-    git+https://github.com/bitranox/lib_parameter.git
+
+    # for the latest development version :
+    lib_parameter @ git+https://github.com/bitranox/lib_parameter.git
 
     # to install and upgrade all modules mentioned in requirements.txt:
-    pip install --upgrade -r /<path>/requirements.txt
+    python -m pip install --upgrade -r /<path>/requirements.txt
 
-via python:
 
-.. code-block:: python
 
-    # for the latest Release
-    python -m pip install upgrade lib_parameter
+- to install the latest development version from source code:
 
-    # for the latest Development Version
-    python -m pip install upgrade git+https://github.com/bitranox/lib_parameter.git
+.. code-block:: bash
 
-Basic Usage
+    # cd ~
+    $ git clone https://github.com/bitranox/lib_parameter.git
+    $ cd lib_parameter
+
+    # to test without installing (can be skipped)
+    python setup.py test
+
+    # normal install
+    python setup.py install
+
+- via makefile:
+  makefiles are a very convenient way to install. Here we can do much more,
+  like installing virtual environments, clean caches and so on.
+
+.. code-block:: shell
+
+    # from Your shell's homedirectory:
+    $ git clone https://github.com/bitranox/lib_parameter.git
+    $ cd lib_parameter
+
+    # to run the tests:
+    $ make test
+
+    # to install the package
+    $ make install
+
+    # to clean the package
+    $ make clean
+
+    # uninstall the package
+    $ make uninstall
+
+Usage
 -----------
 
-TBA
+.. code-block::
+
+    import the module and check the code - its easy and documented there, including doctest examples.
+    in case of any questions the usage section might be expanded at a later time
+
+Usage from Commandline
+------------------------
+
+.. code-block:: bash
+
+   Usage: lib_parameter [OPTIONS] COMMAND [ARGS]...
+
+     small gist,to return a default value if the parameter is None
+
+   Options:
+     --version   Show the version and exit.
+     -h, --help  Show this message and exit.
+
+   Commands:
+     info  get program informations
 
 Requirements
 ------------
@@ -111,20 +221,8 @@ following modules will be automatically installed :
 
 .. code-block:: bash
 
-    ## Test Requirements
-    ## following Requirements will be installed temporarily for
-    ## "setup.py install test" or "pip install <package> --install-option test"
-    docopt
-    typing ; python_version < "3.5"
-    pathlib; python_version < "3.4"
-    mypy ; platform_python_implementation != "PyPy" and python_version >= "3.5"
-    pytest
-    pytest-pep8 ; python_version < "3.5"
-    pytest-pycodestyle ; python_version >= "3.5"
-    pytest-mypy ; platform_python_implementation != "PyPy" and python_version >= "3.5"
-    pytest-runner
-
     ## Project Requirements
+    click
 
 Acknowledgements
 ----------------
@@ -147,9 +245,16 @@ This software is licensed under the `MIT license <http://en.wikipedia.org/wiki/M
 Changelog
 =========
 
+- new MAJOR version for incompatible API changes,
+- new MINOR version for added functionality in a backwards compatible manner
+- new PATCH version for backwards compatible bug fixes
+
+
 0.0.3
 -----
-development
+2020-07-06 : patch release
+    - new click cli
+    - use PizzaCutter Template
 
 0.0.2
 -----
