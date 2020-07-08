@@ -18,3 +18,7 @@ def get_default_if_none(parameter: Optional[T], default: T) -> T:
         return default
     else:
         return parameter
+
+
+if __name__ == '__main__':
+    print('this is a library only, the executable is named lib_parameter_cli.py')
