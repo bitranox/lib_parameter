@@ -6,6 +6,13 @@ Changelog
 - new PATCH version for backwards compatible bug fixes
 
 
+0.1.1
+-----
+2020-07-16: feature release
+    - fix cli test
+    - enable traceback option on cli errors
+
+
 0.1.0
 -----
 2020-07-07 : mypy type annotation handling
