@@ -6,6 +6,11 @@ Changelog
 - new PATCH version for backwards compatible bug fixes
 
 
+0.1.2
+-----
+2020-07-27: feature release
+    - use cli_exit_tools
+
 0.1.1
 -----
 2020-07-16: feature release

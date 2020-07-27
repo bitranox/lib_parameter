@@ -1,3 +1,7 @@
+Version 0.1.2 as of 2020-07-27, see changelog_
+
+=======================================================
+
 lib_parameter
 =============
 
@@ -86,9 +90,9 @@ tested on linux "bionic" with python 3.6, 3.7, 3.8, 3.8-dev, pypy3
 ----
 
 - `Try it Online`_
-- `Installation and Upgrade`_
 - `Usage`_
 - `Usage from Commandline`_
+- `Installation and Upgrade`_
 - `Requirements`_
 - `Acknowledgements`_
 - `Contribute`_
@@ -105,6 +109,31 @@ Try it Online
 
 You might try it right away in Jupyter Notebook by using the "launch binder" badge, or click `here <https://mybinder.org/v2/gh/{{rst_include.
 repository_slug}}/master?filepath=lib_parameter.ipynb>`_
+
+Usage
+-----------
+
+.. code-block::
+
+    import the module and check the code - its easy and documented there, including doctest examples.
+    in case of any questions the usage section might be expanded at a later time
+
+Usage from Commandline
+------------------------
+
+.. code-block:: bash
+
+   Usage: lib_parameter [OPTIONS] COMMAND [ARGS]...
+
+     small gist,to return a default value if the parameter is None
+
+   Options:
+     --version                     Show the version and exit.
+     --traceback / --no-traceback  return traceback information on cli
+     -h, --help                    Show this message and exit.
+
+   Commands:
+     info  get program informations
 
 Installation and Upgrade
 ------------------------
@@ -195,31 +224,6 @@ Installation and Upgrade
     # uninstall the package
     $ make uninstall
 
-Usage
------------
-
-.. code-block::
-
-    import the module and check the code - its easy and documented there, including doctest examples.
-    in case of any questions the usage section might be expanded at a later time
-
-Usage from Commandline
-------------------------
-
-.. code-block:: bash
-
-   Usage: lib_parameter [OPTIONS] COMMAND [ARGS]...
-
-     small gist,to return a default value if the parameter is None
-
-   Options:
-     --version                     Show the version and exit.
-     --traceback / --no-traceback  return traceback information on cli
-     -h, --help                    Show this message and exit.
-
-   Commands:
-     info  get program informations
-
 Requirements
 ------------
 following modules will be automatically installed :
@@ -228,6 +232,7 @@ following modules will be automatically installed :
 
     ## Project Requirements
     click
+    cli_exit_tools @ git+https://github.com/bitranox/cli_exit_tools.git
 
 Acknowledgements
 ----------------
@@ -254,6 +259,11 @@ Changelog
 - new MINOR version for added functionality in a backwards compatible manner
 - new PATCH version for backwards compatible bug fixes
 
+
+0.1.2
+-----
+2020-07-27: feature release
+    - use cli_exit_tools
 
 0.1.1
 -----
