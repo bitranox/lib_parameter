@@ -8,7 +8,8 @@ Changelog
 
 0.1.2
 -----
-development
+2020-07-27: feature release
+    - use cli_exit_tools
 
 0.1.1
 -----
