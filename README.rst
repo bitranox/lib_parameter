@@ -1,4 +1,4 @@
-Version 0.1.3a0 as of 2020-07-27, see changelog_
+Version 0.1.3 as of 2020-07-29, see changelog_
 
 =======================================================
 
@@ -260,10 +260,10 @@ Changelog
 - new PATCH version for backwards compatible bug fixes
 
 
-0.1.3a0
+0.1.3
 -------
-2020-07-27: development
-    - development
+2020-07-29: feature release
+    - use the new pizzacutter template
 
 
 0.1.2
