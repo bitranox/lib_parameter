@@ -1,4 +1,4 @@
-Version 0.1.3 as of 2020-07-29, see changelog_
+Version 1.1.4 as of 2020-07-31, see changelog_
 
 =======================================================
 
@@ -260,38 +260,7 @@ Changelog
 - new PATCH version for backwards compatible bug fixes
 
 
-0.1.3
+1.1.4
 -------
-2020-07-29: feature release
-    - use the new pizzacutter template
-
-
-0.1.2
------
-2020-07-27: feature release
-    - use cli_exit_tools
-
-0.1.1
------
-2020-07-16: feature release
-    - fix cli test
-    - enable traceback option on cli errors
-
-
-0.1.0
------
-2020-07-07 : mypy type annotation handling
-    - changes the type annotation from *Optional[T]* to *T* on the return value
-    - new click cli
-    - use PizzaCutter Template
-    - added jupyter notebook
-
-
-0.0.2
------
-2019-09-02: refractor
-
-0.0.1
------
-2019-09-02: Initial public release
+2020-07-31: initial PyPi release
 
