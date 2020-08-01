@@ -1,7 +1,8 @@
 lib_parameter
 =============
 
-Version v1.1.5 as of 2020-08-01, see `Changelog`_.
+
+Version v1.1.5 as of 2020-08-01 see `Changelog`_
 
 
 .. include:: ./badges.rst
