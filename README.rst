@@ -1,9 +1,8 @@
-Version 1.1.4 as of 2020-07-31, see changelog_
-
-=======================================================
-
 lib_parameter
 =============
+
+
+Version v1.1.5 as of 2020-08-01 see `Changelog`_
 
 |travis_build| |license| |jupyter| |pypi|
 
@@ -83,7 +82,7 @@ automated tests, Travis Matrix, Documentation, Badges, etc. are managed with `Pi
 
 Python version required: 3.6.0 or newer
 
-tested on linux "bionic" with python 3.6, 3.7, 3.8, 3.8-dev, pypy3
+tested on linux "bionic" with python 3.6, 3.7, 3.8, 3.8-dev, pypy3 - architectures: amd64, ppc64le, s390x, arm64
 
 `100% code coverage <https://codecov.io/gh/bitranox/lib_parameter>`_, codestyle checking ,mypy static type checking ,tested under `Linux, macOS, Windows <https://travis-ci.org/bitranox/lib_parameter>`_, automatic daily builds and monitoring
 
@@ -260,7 +259,11 @@ Changelog
 - new PATCH version for backwards compatible bug fixes
 
 
-1.1.4
+v1.1.5
+---------
+2020-08-01: fix pypi deploy
+
+v1.1.4
 -------
 2020-07-31: initial PyPi release
 
