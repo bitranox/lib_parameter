@@ -13,8 +13,23 @@ env:
         - cPIP="python -m pip"
         # switch off wine fix me messages
         - WINEDEBUG=fixme-all
-        # mypy path
+
+        # PYTEST
+        - PYTEST_DO_TESTS="True" 
+
+        # FLAKE8 tests
+        - DO_FLAKE8_TESTS="True"
+
+        # MYPY tests
+        - MYPY_DO_TESTS="True"
+        - MYPY_OPTIONS="--follow-imports=normal --implicit-reexport --no-warn-unused-ignores --strict"
         - MYPYPATH="./lib_parameter/3rd_party_stubs"
+
+        # coverage
+        - DO_COVERAGE="True"
+        - DO_COVERAGE_UPLOAD_CODECOV="True"
+        - DO_COVERAGE_UPLOAD_CODE_CLIMATE="True"
+
         # package name
         - PACKAGE_NAME="lib_parameter"
         # the registered CLI Command
@@ -23,9 +38,11 @@ env:
         - RST_INCLUDE_SOURCE="./.docs/README_template.rst"
         # the target file for rst_include (rebuild rst file includes)
         - RST_INCLUDE_TARGET="./README.rst"
+
         # secure environment variable
         - secure: "M26CKssHuNeR2nB/xs1pnOwl+YtlawY9XkDq4XSDqKzrbTen263qdAGF0VDK3OmWSWnNKJtcQmtozywxA4nXmw04xTKomEXM7YXaFwNCbO/0ZMQ1eNOa26+qFmT7h9WgwTQIi5T3muA1jXitAL5MJ1uUYO5Vq6S/lCwY1RBO6gUqL4hmzO1yhB22fGlne1OKX8q3Qj5aOc34+u6jma0GBHVGNdm0cRDZhYX6tUUFh01oQFwN1C/z6OmQphxNqdf9/4JAQFy0a5qiWCV0ieFEcqBr1plbjZfVtaeq/V8s3RYbYtRxjPdfue3oBvC6MNV9z45V+qNF1/4XjLd0zMQoxDhb5n6hJnCNkakkm9jsh7FAl4atgGfQ915HOG7rXP6LCUZYoLxN0uDMBWYoF3e9t5AeCm8kG2jxlYQGifXi0WcmRB36oGZZREVSU3OzDOYTqFmiVQt3J05/oxtwkrwrvL7OhRq9vb8L3Z2Ic9Wn+I+D0Zm0FwcgVvEp9kC+hMdS6FdL0twExNsi50181pIfBDRLWod0e0WfONZpSNtnYFKvqTaavLLs+VORtyFsOIViPkpoS2EmQmrv7iaI10jZdAByjDyVYQb3l7F8p9X2CctbJtmD7jsVq5+So4hC7YV/orPkxKUj3KZ5gVDm6mEMSY6FzMpWrAQ9ioRDkp+peTg="  # CC_TEST_REPORTER_ID.secret
         - secure: "lO7Lt9YDfv/siV92xN/8MT1EiFbQpFSjfTJPshnbafqPdXfSR7KQgPwks8Z13NiPQ56CIqQ8j8QFp4SHfQPWSi7y2YOxzQoYj7zCKNcOwgbD76+zsUOcXBeLSVC/AALfEAUTopa/aiLaKiXVP3x+bIVALXh7Se8nYU/OTXQ7a50Ne3ayroSpx3QSpR18+UOmQNQVPIi/qv1L3IwvbLRBErPJi+9nlZUNo65qvHRGHVvlgkquqvbApmABgMMrWH/O1Tk+aNRrQFuIdqrsEouZMZDe6GTefAilLwVjB93zvxTQMXM+uqfJw41Ozm3tXIW7yiLv74bKCIGy+1ZWWXdIK9Ymij3By6I/x/GuG7oZhBOa6ZEDsSPXB5QRw2JTFFAQyZhDb0nVdKIj6p8VuGmMwNiKDPy8WdcRct026ILb0FlsU4coIpoSP/u5D6z2UKz4Vny+tNhvxrUIAnmBCZZ0MEiKV3Mr9uDOQ/u6KNaPlzCXmK9z7juAW8bn/OMLT11gj/oPfqNMlnb9gEseXRWzY1Z2dKM+dOmaIBBSOHDA/sBIpHpSbDZijRUURgMJWawh/GFvIAurbXgPUwtpZ/NxpxDSdjWbxuRPJ7o038aKE5rKir4i28lP9PWsGWEG6dikp5EDLf9jB/MGjiVnRcwvKmHRigbZZedXHvWXr5Wsgco="  # PYPI_PASSWORD.secret
+
 
 
 addons:
@@ -59,7 +76,7 @@ matrix:
           - export DEPLOY_SDIST="False"
           - export DEPLOY_WHEEL="False"
           - export DEPLOY_TEST="False"
-          - export MYPY_STRICT="True"   
+          - export MYPY_DO_TESTS="True"
 
 
     - os: linux
@@ -69,10 +86,10 @@ matrix:
       python: "3.6"
       before_install:
           - export BUILD_DOCS="False"
-          - export DEPLOY_SDIST="False"
-          - export DEPLOY_WHEEL="False"
-          - export DEPLOY_TEST="True"
-          - export MYPY_STRICT="True"   
+          - export DEPLOY_SDIST="True"
+          - export DEPLOY_WHEEL="True"
+          - export BUILD_TEST="True"
+          - export MYPY_DO_TESTS="True"
 
     - os: linux
       arch: "amd64"
@@ -81,10 +98,10 @@ matrix:
       python: "3.7"
       before_install:
           - export BUILD_DOCS="False"
-          - export DEPLOY_SDIST="False"
+          - export DEPLOY_SDIST="True"
           - export DEPLOY_WHEEL="False"
-          - export DEPLOY_TEST="True"
-          - export MYPY_STRICT="True"   
+          - export BUILD_TEST="True"
+          - export MYPY_DO_TESTS="True"
 
     - os: linux
       arch: "amd64"
@@ -95,8 +112,8 @@ matrix:
           - export BUILD_DOCS="True"
           - export DEPLOY_SDIST="True"
           - export DEPLOY_WHEEL="True"
-          - export DEPLOY_TEST="True"
-          - export MYPY_STRICT="True"   
+          - export BUILD_TEST="True"
+          - export MYPY_DO_TESTS="True"
 
     - os: linux
       arch: "amd64"
@@ -105,10 +122,10 @@ matrix:
       python: "3.8-dev"
       before_install:
           - export BUILD_DOCS="False"
-          - export DEPLOY_SDIST="False"
-          - export DEPLOY_WHEEL="False"
-          - export DEPLOY_TEST="True"
-          - export MYPY_STRICT="True"   
+          - export DEPLOY_SDIST="True"
+          - export DEPLOY_WHEEL="True"
+          - export BUILD_TEST="True"
+          - export MYPY_DO_TESTS="True"
 
     - os: linux
       arch: "amd64"
@@ -117,10 +134,10 @@ matrix:
       python: "pypy3"
       before_install:
           - export BUILD_DOCS="False"
-          - export DEPLOY_SDIST="False"
-          - export DEPLOY_WHEEL="False"
-          - export DEPLOY_TEST="True"
-          - export MYPY_STRICT="False"   
+          - export DEPLOY_SDIST="True"
+          - export DEPLOY_WHEEL="True"
+          - export BUILD_TEST="True"
+          - export MYPY_DO_TESTS="False"
 
     - os: linux
       arch: "ppc64le"
@@ -129,10 +146,10 @@ matrix:
       python: "3.8"
       before_install:
           - export BUILD_DOCS="False"
-          - export DEPLOY_SDIST="False"
+          - export DEPLOY_SDIST="True"
           - export DEPLOY_WHEEL="True"
-          - export DEPLOY_TEST="True"
-          - export MYPY_STRICT="True"   
+          - export BUILD_TEST="True"
+          - export MYPY_DO_TESTS="True"
 
     - os: linux
       arch: "s390x"
@@ -141,10 +158,10 @@ matrix:
       python: "3.8"
       before_install:
           - export BUILD_DOCS="False"
-          - export DEPLOY_SDIST="False"
+          - export DEPLOY_SDIST="True"
           - export DEPLOY_WHEEL="True"
-          - export DEPLOY_TEST="True"
-          - export MYPY_STRICT="True"   
+          - export BUILD_TEST="True"
+          - export MYPY_DO_TESTS="True"
 
     - os: linux
       arch: "arm64"
@@ -153,10 +170,10 @@ matrix:
       python: "3.8"
       before_install:
           - export BUILD_DOCS="False"
-          - export DEPLOY_SDIST="False"
+          - export DEPLOY_SDIST="True"
           - export DEPLOY_WHEEL="True"
-          - export DEPLOY_TEST="True"
-          - export MYPY_STRICT="True"   
+          - export BUILD_TEST="True"
+          - export MYPY_DO_TESTS="True"
 
     - os: osx
       if: true
@@ -173,7 +190,7 @@ matrix:
         - export DEPLOY_SDIST="False"
         - export DEPLOY_WHEEL="False"
         - export DEPLOY_TEST="True"
-        - export MYPY_STRICT="True"   
+        - export MYPY_DO_TESTS="True"
 
 
 install:
