@@ -2,7 +2,7 @@ lib_parameter
 =============
 
 
-Version v1.1.5 as of 2020-08-01 see `Changelog`_
+Version v1.1.6 as of 2020-08-07 see `Changelog`_
 
 |travis_build| |license| |jupyter| |pypi|
 
@@ -84,7 +84,7 @@ Python version required: 3.6.0 or newer
 
 tested on linux "bionic" with python 3.6, 3.7, 3.8, 3.8-dev, pypy3 - architectures: amd64, ppc64le, s390x, arm64
 
-`100% code coverage <https://codecov.io/gh/bitranox/lib_parameter>`_, codestyle checking ,mypy static type checking ,tested under `Linux, macOS, Windows <https://travis-ci.org/bitranox/lib_parameter>`_, automatic daily builds and monitoring
+`100% code coverage <https://codecov.io/gh/bitranox/lib_parameter>`_, flake8 style checking ,mypy static type checking ,tested under `Linux, macOS, Windows <https://travis-ci.org/bitranox/lib_parameter>`_, automatic daily builds and monitoring
 
 ----
 
@@ -258,6 +258,10 @@ Changelog
 - new MINOR version for added functionality in a backwards compatible manner
 - new PATCH version for backwards compatible bug fixes
 
+
+v1.1.6
+---------
+2020-08-07: fix wheels
 
 v1.1.5
 ---------
