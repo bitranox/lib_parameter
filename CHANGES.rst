@@ -5,6 +5,12 @@ Changelog
 - new MINOR version for added functionality in a backwards compatible manner
 - new PATCH version for backwards compatible bug fixes
 
+v1.1.9
+------
+2021-11-21: service release
+    - implement github actions
+    - implement check for test environment on __init__
+
 v1.1.8
 --------
 2020-10-09: service release
