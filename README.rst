@@ -218,8 +218,8 @@ following modules will be automatically installed :
 
     ## Project Requirements
     click
-    cli_exit_tools @ git+https://github.com/bitranox/cli_exit_tools.git
-    lib_detect_testenv @ git+https://github.com/bitranox/lib_detect_testenv.git
+    cli_exit_tools
+    lib_detect_testenv
 
 Acknowledgements
 ----------------
@@ -245,6 +245,7 @@ Changelog
 - new MAJOR version for incompatible API changes,
 - new MINOR version for added functionality in a backwards compatible manner
 - new PATCH version for backwards compatible bug fixes
+
 
 v1.1.9
 ------
