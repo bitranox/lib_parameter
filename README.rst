@@ -2,7 +2,7 @@ lib_parameter
 =============
 
 
-Version v1.1.9 as of 2021-11-22 see `Changelog`_
+Version v1.1.10 as of 2021-11-22 see `Changelog`_
 
 |build_badge| |license| |jupyter| |pypi| |black|
 
@@ -18,7 +18,7 @@ Version v1.1.9 as of 2021-11-22 see `Changelog`_
    :target: http://en.wikipedia.org/wiki/MIT_License
 
 .. |jupyter| image:: https://mybinder.org/badge_logo.svg
- :target: https://mybinder.org/v2/gh/bitranox/lib_parameter/master?filepath=lib_parameter.ipynb
+   :target: https://mybinder.org/v2/gh/bitranox/lib_parameter/master?filepath=lib_parameter.ipynb
 
 .. for the pypi status link note the dashes, not the underscore !
 .. |pypi| image:: https://img.shields.io/pypi/status/lib-parameter?label=PyPI%20Package
@@ -245,6 +245,12 @@ Changelog
 - new MAJOR version for incompatible API changes,
 - new MINOR version for added functionality in a backwards compatible manner
 - new PATCH version for backwards compatible bug fixes
+
+
+v1.1.10
+-------
+2021-11-22
+    - fix "setup.py test"
 
 
 v1.1.9
