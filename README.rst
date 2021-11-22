@@ -2,7 +2,7 @@ lib_parameter
 =============
 
 
-Version v1.1.10b as of 2021-11-22 see `Changelog`_
+Version v1.1.10 as of 2021-11-22 see `Changelog`_
 
 |build_badge| |license| |jupyter| |pypi| |black|
 
@@ -247,9 +247,9 @@ Changelog
 - new PATCH version for backwards compatible bug fixes
 
 
-v1.1.10b
---------
-work in progress
+v1.1.10
+-------
+2021-11-22
     - fix "setup.py test"
 
 
