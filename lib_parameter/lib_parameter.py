@@ -1,6 +1,6 @@
 from typing import TypeVar, Optional
 
-T = TypeVar('T')
+T = TypeVar("T")
 
 
 def get_default_if_none(parameter: Optional[T], default: T) -> T:
@@ -20,5 +20,5 @@ def get_default_if_none(parameter: Optional[T], default: T) -> T:
         return parameter
 
 
-if __name__ == '__main__':
-    print('this is a library only, the executable is named lib_parameter_cli.py')
+if __name__ == "__main__":
+    print("this is a library only, the executable is named lib_parameter_cli.py")
