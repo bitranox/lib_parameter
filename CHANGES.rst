@@ -6,11 +6,14 @@ Changelog
 - new PATCH version for backwards compatible bug fixes
 
 
+v1.1.11
+--------
+2022-03-25: fix github actions windows test
+
 v1.1.10
 -------
 2021-11-22
     - fix "setup.py test"
-
 
 v1.1.9
 ------

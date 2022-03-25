@@ -2,9 +2,9 @@ lib_parameter
 =============
 
 
-Version v1.1.10 as of 2021-11-22 see `Changelog`_
+Version v1.1.11 as of 2022-03-25 see `Changelog`_
 
-|build_badge| |license| |jupyter| |pypi| |black|
+|build_badge| |license| |jupyter| |pypi| |pypi-downloads| |black|
 
 |codecov| |better_code| |cc_maintain| |cc_issues| |cc_coverage| |snyk|
 
@@ -47,6 +47,10 @@ Version v1.1.10 as of 2021-11-22 see `Changelog`_
 
 .. |black| image:: https://img.shields.io/badge/code%20style-black-000000.svg
    :target: https://github.com/psf/black
+
+.. |pypi-downloads| image:: https://img.shields.io/pypi/dm/lib-parameter
+   :target: https://pypi.org/project/lib-parameter/
+   :alt: PyPI - Downloads
 
 small gist, to return a default value if the parameter is None
 
@@ -247,11 +251,14 @@ Changelog
 - new PATCH version for backwards compatible bug fixes
 
 
+v1.1.11
+--------
+2022-03-25: fix github actions windows test
+
 v1.1.10
 -------
 2021-11-22
     - fix "setup.py test"
-
 
 v1.1.9
 ------
