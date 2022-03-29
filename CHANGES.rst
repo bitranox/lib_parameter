@@ -6,6 +6,10 @@ Changelog
 - new PATCH version for backwards compatible bug fixes
 
 
+v1.1.12
+--------
+2022-03-29: remedy mypy Untyped decorator makes function "cli_info" untyped
+
 v1.1.11
 --------
 2022-03-25: fix github actions windows test
