@@ -2,7 +2,7 @@ lib_parameter
 =============
 
 
-Version v1.1.12.1 as of 2022-06-01 see `Changelog`_
+Version v1.1.12.2 as of 2022-06-02 see `Changelog`_
 
 |build_badge| |license| |jupyter| |pypi| |pypi-downloads| |black|
 
@@ -250,6 +250,9 @@ Changelog
 - new MINOR version for added functionality in a backwards compatible manner
 - new PATCH version for backwards compatible bug fixes
 
+v1.1.12.2
+---------
+2022-06-01: update to github actions checkout@v3 and setup-python@v3
 
 v1.1.12.1
 ---------
