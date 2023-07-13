@@ -1,24 +1,22 @@
 # CONF
 
-name = "lib_parameter"
-title = "small gist,to return a default value if the parameter is None"
-version = "v1.1.12.2"
-url = "https://github.com/bitranox/lib_parameter"
-author = "Robert Nowotny"
-author_email = "bitranox@gmail.com"
-shell_command = "lib_parameter"
+name = 'lib_parameter'
+title = 'small gist,to return a default value if the parameter is None'
+version = 'v1.1.13'
+url = 'https://github.com/bitranox/lib_parameter'
+author = 'Robert Nowotny'
+author_email = 'bitranox@gmail.com'
+shell_command = 'lib_parameter'
 
 
 def print_info() -> None:
-    print(
-        """\
+    print("""\
 
 Info for lib_parameter:
 
     small gist,to return a default value if the parameter is None
 
-    Version : v1.1.12.2
+    Version : v1.1.13
     Url     : https://github.com/bitranox/lib_parameter
     Author  : Robert Nowotny
-    Email   : bitranox@gmail.com"""
-    )
+    Email   : bitranox@gmail.com""")
