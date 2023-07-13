@@ -10,7 +10,7 @@ authors = [
 ]
 description = "small gist,to return a default value if the parameter is None"
 readme = "README.rst"
-requires-python = ">=3.7.0"
+requires-python = ">=3.8.0"
 keywords = [
 ]
 license = {text = "MIT"}
@@ -30,7 +30,7 @@ dependencies = [
     "cli_exit_tools",
     "lib_detect_testenv",
 ]
-version = "v1.1.13"
+version = "v1.1.14"
 # seems to be not allowed anymore
 # zip-save = false
 
@@ -42,8 +42,7 @@ Changelog = "https://github.com/bitranox/lib_parameter/blob/master/CHANGES.rst"
 
 [project.optional-dependencies]
 test = [
-    "black ; platform_python_implementation != 'PyPy'",
-    "black==19.3b0 ; platform_python_implementation == 'PyPy'",
+    "black",
     "codecov",
     "coloredlogs",
     "coverage",
@@ -52,6 +51,7 @@ test = [
     "pytest",
     "pytest-cov",
     "pytest-runner",
+    "readme_renderer",
 ]
 
 [project.scripts]

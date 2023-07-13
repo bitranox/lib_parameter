@@ -2,7 +2,7 @@
 
 name = 'lib_parameter'
 title = 'small gist,to return a default value if the parameter is None'
-version = 'v1.1.13'
+version = 'v1.1.14'
 url = 'https://github.com/bitranox/lib_parameter'
 author = 'Robert Nowotny'
 author_email = 'bitranox@gmail.com'
@@ -16,7 +16,7 @@ Info for lib_parameter:
 
     small gist,to return a default value if the parameter is None
 
-    Version : v1.1.13
+    Version : v1.1.14
     Url     : https://github.com/bitranox/lib_parameter
     Author  : Robert Nowotny
     Email   : bitranox@gmail.com""")
