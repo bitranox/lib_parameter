@@ -30,7 +30,7 @@ dependencies = [
     "cli_exit_tools",
     "lib_detect_testenv",
 ]
-version = "v1.1.14"
+version = "v1.1.15"
 # seems to be not allowed anymore
 # zip-save = false
 
